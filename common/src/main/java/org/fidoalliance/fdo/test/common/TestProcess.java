@@ -4,7 +4,6 @@
 package org.fidoalliance.fdo.test.common;
 
 import com.sun.jna.Platform;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -117,17 +116,18 @@ public class TestProcess extends TestCase {
     builder.redirectError(Redirect.INHERIT);
 
     try {
-        Process process = builder.start();
+      Process process = builder.start();
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                TestLogger.info("[docker] " + line);
-            }
+      try (BufferedReader reader = 
+        new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+          TestLogger.info("[docker] " + line);
         }
+      }
 
-        int exitCode = process.waitFor();
-        TestLogger.info("Process exited with code: " + exitCode);
+      int exitCode = process.waitFor();
+      TestLogger.info("Process exited with code: " + exitCode);
     } catch (Exception e) {
       e.printStackTrace();
     }
