@@ -93,8 +93,8 @@ public class PriSmokeTest extends TestCase {
 //      TestProcess.execute_dockerCmd(mfgDockerPath.toString(), downDockerService);
 //      TestProcess.execute_dockerCmd(ownerDockerPath.toString(), downDockerService);
 //      TestProcess.execute_dockerCmd(rvDockerPath.toString(), downDockerService);
-      TestProcess.execute_dockerCmd(aioDockerPath.toString(), downDockerService);
-      TestProcess.execute_dockerCmd(dbDockerPath.toString(), downDockerService);
+      // TestProcess.execute_dockerCmd(aioDockerPath.toString(), downDockerService);
+      // TestProcess.execute_dockerCmd(dbDockerPath.toString(), downDockerService);
       Thread.sleep(dockerDownTimeout.toMillis());
     } catch (Exception e) {
       e.printStackTrace();
