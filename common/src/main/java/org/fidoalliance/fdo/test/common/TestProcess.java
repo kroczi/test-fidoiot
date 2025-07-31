@@ -119,7 +119,7 @@ public class TestProcess extends TestCase {
       Process process = builder.start();
 
       try (BufferedReader reader = 
-        new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+          new BufferedReader(new InputStreamReader(process.getInputStream()))) {
         String line;
         while ((line = reader.readLine()) != null) {
           TestLogger.info("[docker] " + line);
