@@ -103,7 +103,7 @@ public class TestProcess extends TestCase {
     List<String> commands = new ArrayList<>();
     commands.add("bash");
     commands.add("-c");
-    commands.add("ls");
+    commands.add(command);
 
     ProcessBuilder builder = new ProcessBuilder().inheritIO();
     builder.command(commands);
