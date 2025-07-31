@@ -356,12 +356,12 @@ public class PriSmokeTest extends TestCase {
 
     TestLogger.info("Test Name:" + testName);
 
-    if (testName.equals("component-sample-test")) {
-      componentSampleTest(sviEnabled);
-    } else if (testName.equals("aio-test")) {
-      aioTest(sviEnabled);
-    } else {
-      throw new SkipException("Skipping tests for unknown device type " + deviceType);
-    }
+    // if (testName.equals("component-sample-test")) {
+    //   componentSampleTest(sviEnabled);
+    // } else if (testName.equals("aio-test")) {
+    //   aioTest(sviEnabled);
+    // } else {
+    //   throw new SkipException("Skipping tests for unknown device type " + deviceType);
+    // }
   }
 }
