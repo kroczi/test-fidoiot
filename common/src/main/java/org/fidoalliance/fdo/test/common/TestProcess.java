@@ -105,7 +105,7 @@ public class TestProcess extends TestCase {
     commands.add("-c");
     commands.add(command);
 
-    ProcessBuilder builder = new ProcessBuilder().inheritIO();
+    ProcessBuilder builder = new ProcessBuilder();
     builder.command(commands);
     File path1 = new File(directory);
     TestLogger.info("=====> File(directory): " + path1.toString());
