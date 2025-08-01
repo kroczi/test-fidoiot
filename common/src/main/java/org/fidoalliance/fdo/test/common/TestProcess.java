@@ -103,9 +103,9 @@ public class TestProcess extends TestCase {
     List<String> commands = new ArrayList<>();
     commands.add("bash");
     commands.add("-c");
-    commands.add("docker compose up -d --build ; docker compose logs --no-color");
+    commands.add(command);
 
-    ProcessBuilder builder = new ProcessBuilder();
+    ProcessBuilder builder = new ProcessBuilder().inheritIO();
     builder.command(commands);
     File path1 = new File(directory);
     TestLogger.info("=====> File(directory): " + path1.toString());
@@ -117,15 +117,6 @@ public class TestProcess extends TestCase {
 
     try {
       Process process = builder.start();
-
-      try (BufferedReader reader = 
-          new BufferedReader(new InputStreamReader(process.getInputStream()))) {
-        String line;
-        while ((line = reader.readLine()) != null) {
-          TestLogger.info("[docker] " + line);
-        }
-      }
-
       int exitCode = process.waitFor();
       TestLogger.info("Process exited with code: " + exitCode);
     } catch (Exception e) {
