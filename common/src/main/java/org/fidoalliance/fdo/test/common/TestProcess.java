@@ -4,8 +4,10 @@
 package org.fidoalliance.fdo.test.common;
 
 import com.sun.jna.Platform;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.ProcessBuilder.Redirect;
 import java.nio.file.Path;
 import java.time.Duration;
@@ -114,7 +116,10 @@ public class TestProcess extends TestCase {
     builder.redirectError(Redirect.INHERIT);
 
     try {
-      builder.start();
+      Process process = builder.start();
+
+      int exitCode = process.waitFor();
+      TestLogger.info("Process exited with code: " + exitCode);
     } catch (Exception e) {
       e.printStackTrace();
     }
