@@ -103,7 +103,7 @@ public class TestProcess extends TestCase {
     List<String> commands = new ArrayList<>();
     commands.add("bash");
     commands.add("-c");
-    commands.add(command);
+    commands.add("docker compose up -d --build ; docker compose logs --no-color");
 
     ProcessBuilder builder = new ProcessBuilder();
     builder.command(commands);
