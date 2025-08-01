@@ -116,18 +116,7 @@ public class TestProcess extends TestCase {
     builder.redirectError(Redirect.INHERIT);
 
     try {
-      Process process = builder.start();
-
-      try (BufferedReader reader = 
-          new BufferedReader(new InputStreamReader(process.getInputStream()))) {
-        String line;
-        while ((line = reader.readLine()) != null) {
-          TestLogger.info("[docker] " + line);
-        }
-      }
-
-      int exitCode = process.waitFor();
-      TestLogger.info("Process exited with code: " + exitCode);
+      builder.start();
     } catch (Exception e) {
       e.printStackTrace();
     }
